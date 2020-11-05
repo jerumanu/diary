@@ -1,0 +1,25 @@
+<div class="container">
+
+<h1>diary </h1>
+<div class="row">
+<div class="col-md-6">
+<ul>
+    <div *ngFor="let diary of diarys ; let i=index">
+
+       <li>{{diary.day}} due on {{diary.completeDate|date|uppercase}}</li> 
+      <li>{{diary.name}} due on {{diary.completeDate|date|uppercase}}</li>  
+    
+    <button (click)="toggleDetails(i)">Toggle Details</button>
+        <app-diary-detail *ngIf="diary.showDescription" [diary]="diary"(isComplete)="deleteDiary($event,i)"></app-diary-detail>
+    
+</div>
+
+</ul>
+
+</div>
+<div class="col-md-6">
+    <app-diary-form (addDiary)="addNewDiary($event)"></app-diary-form>
+</div>
+</div>
+<p *ngIf="diarys.length > 5">Your diary is too long </p>
+</div>
