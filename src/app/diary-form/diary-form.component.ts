@@ -7,7 +7,7 @@ import {  Diary} from "../diary";
 })
 export class DiaryFormComponent implements OnInit {
 
-newDiary = new Diary (0 ,"", "", new Date());
+newDiary = new Diary (0,"", "", new Date());
 @Output() addDiary = new EventEmitter<Diary>();
 submitDiary(){
   this.addDiary.emit(this.newDiary);
